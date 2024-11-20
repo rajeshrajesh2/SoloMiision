@@ -2,6 +2,7 @@
 import mongoose, { Schema,Document, model, Types } from "mongoose";
 
 interface IMessage extends Document {
+  id: Types.ObjectId;
   sender: Types.ObjectId;
   receiver: Types.ObjectId;
   message: string;
@@ -10,6 +11,7 @@ interface IMessage extends Document {
 }
 const MessageSchema = new Schema<IMessage>(
     {
+      id: { type: Schema.Types.ObjectId, required: true, auto: true },
     sender: { type: Schema.Types.ObjectId, ref: "User" },
     receiver: { type: Schema.Types.ObjectId, ref: "User" },
     message: { type: String, required: true },

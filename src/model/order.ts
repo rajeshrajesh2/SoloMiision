@@ -8,7 +8,7 @@ interface IOrder extends Document {
     seller:Types.ObjectId;
     amount:Number;
     endDate:Date;
-    createdAt:Date;
+    
 }
 const OrderSchema = new Schema<IOrder>({
     id: {
@@ -39,10 +39,7 @@ const OrderSchema = new Schema<IOrder>({
         type: Date,
         required: true,
     },
-    createdAt: {
-        type: Date,
-        default: Date.now,
-    },
+  
 });
 const Order = model<IOrder>("Order", OrderSchema);
 export default Order;
